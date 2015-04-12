@@ -47,6 +47,8 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-puma (0.2.3)
+      capistrano (>= 3.0)
     capistrano-rails (1.1.2)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -98,6 +100,8 @@ GEM
     net-ssh (2.9.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    puma (2.11.2)
+      rack (>= 1.1, < 2.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -178,6 +182,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano (~> 3.1.0)
   capistrano-bundler (~> 1.1)
+  capistrano-puma
   capistrano-rails (~> 1.1)
   capistrano-rvm (~> 0.1)
   coffee-rails (~> 4.1.0)
@@ -185,6 +190,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
+  puma
   rails (= 4.2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

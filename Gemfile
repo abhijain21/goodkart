@@ -6,6 +6,7 @@ gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 gem 'mysql2'
+gem 'puma'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -45,6 +46,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'capistrano', '~> 3.1.0'
+  gem 'capistrano-puma', :require => false
   gem 'capistrano-rails', '~> 1.1', :require => false
   gem 'capistrano-bundler', '~> 1.1', :require => false
   gem 'capistrano-rvm', '~> 0.1', :require => false
