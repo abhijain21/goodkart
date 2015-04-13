@@ -16,6 +16,10 @@
 !/log/.keep
 /tmp
 
+# sphinx
+/config/development.sphinx.conf
+/db/sphinx/*
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

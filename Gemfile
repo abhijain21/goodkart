@@ -5,8 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
-gem 'mysql2'
+gem 'mysql2', :platform => :ruby
 gem 'puma'
+gem 'thinking-sphinx', '3.1.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
