@@ -1,0 +1,12 @@
+development:
+  utf8: false
+  enable_star: true
+  min_prefix_len: 2
+production:
+  utf8: false
+  enable_star: true
+  min_prefix_len: 2
+test:
+  utf8: false
+  enable_star: true
+  min_prefix_len: 2

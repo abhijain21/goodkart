@@ -1,6 +1,54 @@
-hello world
-<br>
+<div id="page-content">
+	<div class="sidebar" id="category_index">
+		<% @categories.each_with_index do |c, index| %>
+			<% if index%5 == 0 %><br/><%end%>
+			<div id="category_<%=c.id%>" class="btn btn-<%= %w{primary success danger info warning primary danger}.sample %> index_labels color_random" style="width: 220px;padding:20px;margin: 10px"><%= c.name %></div>
+		<% end %>
+	</div>
 
-<% Category.all.each do |c| %>
-	<%= c.inspect %><br>
-<% end %>
+	<div class="main" id="products_index">
+		<h3 id="progress-animated">Trending Products</h3>
+		<div class="bs-component">
+          <div class="progress progress-striped active">
+            <div class="progress-bar" style="width: 100%"></div>
+          </div>
+        </div>
+		<% @products.each do |p| %>
+			<div id="product_<%=p.id%>" class="panel panel-primary trending_index" style="width:250px;float:left;margin: 15px;">
+	            <div class="panel-heading" style="background-color: #161F27;background-image: linear-gradient(to bottom,#161F27 0,#2e6da4 100%);">
+	              <h3 class="panel-title"><%= p.category.name%></h3>
+	            </div>
+	            <div class="panel-body">
+	              <span style="text-align: left"><%= p.title %></span>
+	              <span style="text-align: right"><%= "Rs " + p.price.to_s %></span>
+	            </div>
+            </div>
+		<% end %>
+	</div>
+</div>
+
+<style>
+	.ui-autocomplete .prod {
+		padding-left: 50px
+	}
+</style>
+<script>
+	$(document).ready(function(){
+		$("#search").autocomplete({
+    		source: function (request, response) {
+				        $.get("search", {
+				            query: request.term
+				        }, function (data) {
+				            window.asd = data;
+				            response(JSON.parse(data));
+				        });
+		    },
+		    minLength: 2
+		}).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+                return $( "<li class='" + item.type + "'>" )
+				    .attr( "data-id", item.id )
+				    .append( item.type=='cat' ? "<strong class='text-success'>Category: " + item.label + "</strong>": "    " + item.label )
+				    .appendTo( ul );
+        };
+	});
+</script>
